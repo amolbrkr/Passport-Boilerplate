@@ -1,0 +1,21 @@
+{
+  "name": "PassportLocalBoilerplate",
+  "version": "1.0.0",
+  "description": "Simple Email and Password Authentication using MongoDB and Passport.js",
+  "main": "Server.js",
+  "scripts": {
+    "start": "nodemon Server.js"
+  },
+  "author": "Amol Borkar <amolborkar5@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
