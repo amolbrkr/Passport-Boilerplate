@@ -6,6 +6,7 @@ const mongoose = require ('mongoose');
 const passport = require ('passport');
 const LocalAuth = require('./LocalAuth');
 
+
 const dbUrl = require('./Config').dbUrl;
 const port = process.env.PORT || 9000;
 const app = express ();
@@ -50,9 +51,11 @@ app.post (
   '/login',
   passport.authenticate ('login', {
     successRedirect: '/user',
-    failureMessage: true,
-    successMessage: true,
-  })
+    failWithError: true
+  }),
+  (err, req, res, next) => {
+    return res.status(403).json({message: 'Invalid Email or Password.'});
+  }
 );
 
 app.post ('/logout', (req, res) => {
