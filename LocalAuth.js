@@ -21,8 +21,9 @@ module.exports = passport => {
       {
         usernameField: 'email',
         passwordField: 'password',
+        passReqToCallback: true,
       },
-      (email, password, done) => {
+      (req, email, password, done) => {
         process.nextTick (() => {
           User.findOne ({email: email}, (err, foundUser) => {
             if (err) return done (err);
@@ -33,6 +34,7 @@ module.exports = passport => {
               });
             } else {
               let newUser = new User ();
+              newUser.username = req.body.username;
               newUser.email = email;
               newUser.password = newUser.hashPassword (password);
 

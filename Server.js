@@ -24,6 +24,7 @@ app.use (passport.session ());
 mongoose.connect (dbUrl, {useNewUrlParser: true}, () => {
   console.log ('Successfully connected to hosted database.');
 });
+//mongoose.set('debug', true);
 
 LocalAuth(passport);
 
